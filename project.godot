@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="solitaire_chess"
+run/main_scene="res://chess_scenes/chess_gen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
