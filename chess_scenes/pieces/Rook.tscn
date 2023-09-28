@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://travxc1sqai7"]
+
+[ext_resource type="Texture2D" uid="uid://dxd3xm5w5f44p" path="res://icon.svg" id="1_n2kem"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Rook" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Rook"]
+texture = ExtResource("1_n2kem")

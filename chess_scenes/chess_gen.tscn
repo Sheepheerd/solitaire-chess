@@ -4,3 +4,5 @@
 
 [node name="chess_script" type="Node2D"]
 script = ExtResource("1_fcm4s")
+
+[node name="Camera2D" type="Camera2D" parent="."]

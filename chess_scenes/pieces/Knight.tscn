@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://d34se7utkr65d"]
+
+[ext_resource type="Texture2D" uid="uid://dxd3xm5w5f44p" path="res://icon.svg" id="1_llbsx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Knight" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Knight"]
+texture = ExtResource("1_llbsx")
