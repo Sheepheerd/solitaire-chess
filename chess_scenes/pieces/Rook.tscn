@@ -2,13 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dxd3xm5w5f44p" path="res://icon.svg" id="1_n2kem"]
 
-[node name="Control" type="Control"]
+[node name="TouchScreenButton" type="TouchScreenButton" groups=["Rook"]]
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Rook" type="Node2D" parent="."]
+[node name="Rook" type="Node2D" parent="Control"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Rook"]
+[node name="Sprite2D" type="Sprite2D" parent="Control/Rook"]
 texture = ExtResource("1_n2kem")
