@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var characterScenes = {
 	'K': "res://chess_scenes/pieces/King.tscn",
@@ -9,8 +9,8 @@ var characterScenes = {
 	# Add more characters and scene paths as needed
 }
 
-var cell_size_x = 64  # Adjust this value according to your grid or tile size
-var cell_size_y = 64  # Adjust this value according to your grid or tile size
+var cell_size_x = 128  # Adjust this value according to your grid or tile size
+var cell_size_y = 128  # Adjust this value according to your grid or tile size
 
 var num_pieces = 0
 var array_size = 6
@@ -57,7 +57,7 @@ func _ready():
 	row = randi() % (array_size - 1)
 	col = randi() % (array_size - 1)
 	board[row][col] = initial_piece
-	character_node.position = Vector2(col * cell_size_x, row * cell_size_y)
+	character_node.position =  Vector2((col * cell_size_x) - 225, (row * cell_size_y) - 200)
 	# Place the remaining pieces on the board
 
 
@@ -165,7 +165,7 @@ func place_remaining_pieces(initial_piece):
 
 					# Add the character to your game scene (you may need to adjust the position)
 					# For example, if you have a parent node for characters:
-					character_node.position = Vector2(col * cell_size_x, row * cell_size_y)
+					character_node.position = Vector2((col * cell_size_x) - 225, (row * cell_size_y) - 200)
 					add_child(character_node)
 
 					break

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfuxvkwwiete6"]
+
+[ext_resource type="Texture2D" uid="uid://cy2cv0t21qc3y" path="res://chess_scenes/board/Ising_model_5x5_0.svg.png" id="1_eex72"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_eex72")
