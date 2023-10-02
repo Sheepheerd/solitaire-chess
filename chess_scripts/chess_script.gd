@@ -6,6 +6,7 @@ var characterScenes = {
 	'R': "res://chess_scenes/pieces/Rook.tscn",
 	'B': "res://chess_scenes/pieces/Bishop.tscn",
 	'N': "res://chess_scenes/pieces/Knight.tscn",
+	'E': "res://chess_scenes/pieces/Empty.tscn",
 	# Add more characters and scene paths as needed
 }
 
@@ -23,6 +24,8 @@ var board = []
 var row
 var col
 var initial_piece
+var cell
+var row_str
 func _ready():
 	if difficulty == "easy":
 		num_pieces = 10
@@ -34,7 +37,7 @@ func _ready():
 	for _x in range(array_size):
 		var row : Array = []
 		for _y in range(array_size):
-			row.append(' ')
+			row.append('E')
 		board.append(row)
 	# Place the initial piece on the board
 	randomize()
@@ -48,40 +51,44 @@ func _ready():
 	print(scene_path)
 	# Create an instance of the scene
 	var character_node = character_instance.instantiate()
-
-	# Add the character to your game scene (you may need to adjust the position)
-	# For example, if you have a parent node for characters:
+	character_node.get_node("TouchScreenButton").row = row
+	character_node.get_node("TouchScreenButton").col = col
 	add_child(character_node)
+	
 	#place first piece random
 	print(initial_piece)
 	row = randi() % (array_size - 1)
 	col = randi() % (array_size - 1)
 	board[row][col] = initial_piece
-	character_node.position =  Vector2((col * cell_size_x) - 225, (row * cell_size_y) - 200)
+	character_node.position =  Vector2((col * cell_size_x) - 300, (row * cell_size_y) - 200)
 	# Place the remaining pieces on the board
-
-
-# Place the initial piece on the board
-#	#initial_piece = available_pieces[randi() % available_pieces.size()]
-#	print("Initial Piece:", initial_piece)
-#	available_pieces.erase(initial_piece)
-#	randomize()
-#	available_pieces.shuffle()
 
 	# Place the remaining pieces on the board
 	place_remaining_pieces(initial_piece)
+	
+	for i in range(board.size()):
+		for j in range(board[i].size()):
+			if board[i][j] == 'E':
+				var empty_scene_path = characterScenes['E']
+				var empty_instance = load(empty_scene_path)
+				var empty_node = empty_instance.instantiate()
+				empty_node.position = Vector2((j * cell_size_x) - 300, (i * cell_size_y) - 200)
+				add_child(empty_node)
 
 	for i in range(board.size()):
-		var row_str = ''
+		row_str = ''
 		for j in range(board[i].size()):
-			var cell = board[i][j]
-			row_str += (str(cell if cell != ' ' else '.')) + ' '
+			cell = board[i][j]
+			row_str += (str(cell if cell != 'E' else '.')) + ' '
 		print(row_str)
 		
+		
+
+#
 # Function to check if a piece can be placed at a given position
 func is_valid_move(row, col, piece):
 	# Check if the position is already occupied
-	if board[row][col] != ' ':
+	if board[row][col] != 'E':
 		return false
 	
 	# Check if the piece can capture any other piece
@@ -98,7 +105,7 @@ func is_valid_move(row, col, piece):
 					return true
 				elif piece == 'N' and ((abs(row - i) == 2 and abs(col - j) == 1) or (abs(row - i) == 1 and abs(col - j) == 2)):
 					return true
-				elif piece == 'P' and (row == i + 1 and abs(col - j) == 1):
+				elif piece == 'P' and ((row == i + 1 and abs(col - j) == 1) or (row == i - 1 and abs(col - j) == 1)):
 					return true
 
 	return false
@@ -165,7 +172,9 @@ func place_remaining_pieces(initial_piece):
 
 					# Add the character to your game scene (you may need to adjust the position)
 					# For example, if you have a parent node for characters:
-					character_node.position = Vector2((col * cell_size_x) - 225, (row * cell_size_y) - 200)
+					character_node.position = Vector2((col * cell_size_x) - 300, (row * cell_size_y) - 200)
+					character_node.get_node("TouchScreenButton").row = row
+					character_node.get_node("TouchScreenButton").col = col
 					add_child(character_node)
 
 					break
@@ -185,4 +194,37 @@ func place_remaining_pieces(initial_piece):
 				
 				print("move found")
 
-
+var source_row
+var source_col
+var dest_row
+var dest_col
+var source_piece
+var dest_piece
+var has_selected_piece_one = false
+var has_selected_piece_two = false
+func move_piece():
+	if has_selected_piece_one == true:
+		source_piece = board[source_row][source_col]
+		dest_piece = board[dest_row][dest_col]
+	
+		if is_valid_move(dest_row, dest_col, source_piece):
+			board[dest_row][dest_col] = source_piece
+			board[source_row][source_col] = " "
+		
+			return true
+		else:
+			if dest_piece != " ":
+				print("You have overriden " + dest_piece + " with " + source_piece + ".")
+				board[dest_row][dest_col] = source_piece
+				board[source_row][source_col] = 'E'
+				for i in range(board.size()):
+					row_str = ''
+					for j in range(board[i].size()):
+						cell = board[i][j]
+						row_str += (str(cell if cell != 'E' else '.')) + ' '
+					print(row_str)
+				return true
+			else:
+				print("invalid move. Try again.")
+				return false
+			

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bio01w0057oti"]
+
+[ext_resource type="Texture2D" uid="uid://dxd3xm5w5f44p" path="res://icon.svg" id="1_ge401"]
+[ext_resource type="Texture2D" uid="uid://ckh1h84tcyw0v" path="res://chess_scenes/pieces/sprites/Empty.png" id="2_exkvi"]
+[ext_resource type="Script" path="res://chess_scenes/pieces/piece_movement.gd" id="3_nqprm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1040.0
+offset_bottom = -2360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rook" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Rook"]
+visible = false
+texture = ExtResource("1_ge401")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(-64, -64)
+texture_normal = ExtResource("2_exkvi")
+script = ExtResource("3_nqprm")

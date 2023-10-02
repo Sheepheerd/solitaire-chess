@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpnxt1rl4nbon"]
+[gd_scene load_steps=4 format=3 uid="uid://dpnxt1rl4nbon"]
 
 [ext_resource type="Texture2D" uid="uid://dxd3xm5w5f44p" path="res://icon.svg" id="1_aq6wd"]
 [ext_resource type="Script" path="res://chess_scenes/pieces/piece_movement.gd" id="1_ymmh2"]
+[ext_resource type="Texture2D" uid="uid://bwv1lylmtw4l2" path="res://chess_scenes/pieces/sprites/Bishop.png" id="2_pua6a"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,7 +18,7 @@ texture = ExtResource("1_aq6wd")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." groups=["Bishop"]]
 position = Vector2(-64, -64)
-texture_normal = ExtResource("1_aq6wd")
+texture_normal = ExtResource("2_pua6a")
 script = ExtResource("1_ymmh2")
 
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="_on_pressed"]
