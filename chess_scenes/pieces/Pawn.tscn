@@ -21,3 +21,5 @@ texture = ExtResource("1_e6cj6")
 position = Vector2(-64, -64)
 texture_normal = ExtResource("2_m2tqr")
 script = ExtResource("3_5bjpx")
+
+[connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="_on_pressed"]
