@@ -15,6 +15,10 @@ run/main_scene="res://chess_scenes/chess_gen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+global_row_column="*res://chess_scripts/global_row_column.gd"
+
 [display]
 
 window/size/viewport_width=1080

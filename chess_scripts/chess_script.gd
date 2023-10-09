@@ -211,13 +211,13 @@ func can_capture(sp, dr, dc, sr, sc):
 	var row_diff = abs(dr - sr)
 	var col_diff = abs(dc - sc)
 
-	if sp == 'K' and (row_diff <= 1 and col_diff <= 1):
+	if sp == 'K' and (row_diff <= 1 and col_diff <= 1) && !(sr == dr and sc == dc): 
 		return true
 	elif sp == 'Q' and (sr == dr or sc == dc or row_diff == col_diff):
 		return true
-	elif sp == 'R' and (sr == dr or sc == dc):
+	elif sp == 'R' and (sr == dr or sc == dc) && !(sr == dr and sc == dc):
 		return true
-	elif sp == 'B' and row_diff == col_diff:
+	elif sp == 'B' and row_diff == col_diff && !(sr == dr and sc == dc):
 		# Check if there are pieces in the way
 		var row_step = 1 if dr > sr else -1 if dr < sr else 0
 		var col_step = 1 if dc > sc else -1 if dc < sc else 0
@@ -237,8 +237,9 @@ func can_capture(sp, dr, dc, sr, sc):
 	return false
 					
 var player_clicked = false
+var move_fail = false
 func move_piece():
-	
+
 	if player_clicked == true:
 	#if has_selected_piece_one == true:
 		source_piece = board[source_row][source_col]
@@ -260,8 +261,25 @@ func move_piece():
 						cell = board[i][j]
 						row_str += (str(cell if cell != 'E' else '.')) + ' '
 					print(row_str)
+				game_win()
 				return true
-			else:
-				print("invalid move. Try again.")
-				return false
+		else:
+			move_fail = true
+			print("invalid move. Try again.")
+			#return false
 			
+			
+func game_win():
+	var non_empty_count = 0
+
+	for i in range(board.size()):
+		for j in range(board[i].size()):
+			if board[i][j] != 'E':
+				non_empty_count += 1
+
+	# Check if there's only one non-empty cell left
+	if non_empty_count == 1:
+		print("Congratulations! You have won the game!")
+		# Implement game over logic or any other actions you want to take
+
+
