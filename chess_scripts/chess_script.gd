@@ -81,7 +81,7 @@ func _ready():
 			row_str += (str(cell if cell != 'E' else '.')) + ' '
 		print(row_str)
 		
-		
+	save_board_state()
 
 #
 # Function to check if a piece can be placed at a given position
@@ -197,6 +197,7 @@ func place_remaining_pieces(initial_piece):
 				# A valid move was found, so remove the piece from the available_pieces array
 				
 				print("move found")
+	save_board_state()
 
 var source_row
 var source_col
@@ -252,6 +253,7 @@ func move_piece():
 			#return true
 		#else:
 			if dest_piece != 'E':
+				save_board_state()
 				print("You have overriden " + dest_piece + " with " + source_piece + ".")
 				board[dest_row][dest_col] = source_piece
 				board[source_row][source_col] = 'E'
@@ -276,10 +278,34 @@ func game_win():
 		for j in range(board[i].size()):
 			if board[i][j] != 'E':
 				non_empty_count += 1
-
+	
 	# Check if there's only one non-empty cell left
 	if non_empty_count == 1:
 		print("Congratulations! You have won the game!")
 		# Implement game over logic or any other actions you want to take
+var history = []
 
+func _on_UndoButton_pressed():
+	undo_move()
+	
+	
+func undo_move():
+	if history.size() > 1:
+		# Restore the previous board state from history
+		history.pop_back()  # Remove the current state
+		var previous_state = history[history.size() - 1]
+
+		for i in range(array_size):
+			for j in range(array_size):
+				board[i][j] = previous_state[i][j]
+
+func save_board_state():
+	# Create a deep copy of the current board to save in history
+	var current_state = []
+	for i in range(array_size):
+		var row_copy = []
+		for j in range(array_size):
+			row_copy.append(board[i][j])
+		current_state.append(row_copy)
+	history.append(current_state)
 
