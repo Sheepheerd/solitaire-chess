@@ -41,6 +41,7 @@ func _on_pressed():
 			if (get_parent().get_parent().move_fail == false):
 				has_set_paths = true
 				if has_set_paths:
+					get_parent().get_parent().get_parent().get_node("Pieces").fill_empty_spots()
 					global_row_column.move_node()
 					has_set_paths = false
 				get_parent().get_parent().has_selected_piece_one = false

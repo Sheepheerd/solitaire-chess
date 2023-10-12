@@ -291,6 +291,8 @@ func _on_UndoButton_pressed():
 	
 func undo_move():
 	if history.size() > 1:
+		for i in get_child_count():
+			get_child(i).queue_free()
 		# Restore the previous board state from history
 		history.pop_back()  # Remove the current state
 		var previous_state = history[history.size() - 1]
@@ -298,6 +300,25 @@ func undo_move():
 		for i in range(array_size):
 			for j in range(array_size):
 				board[i][j] = previous_state[i][j]
+
+				if board[i][j] == 'E':
+					# If the board contains 'E', instantiate the "Empty" piece
+					var empty_scene_path = characterScenes['E']
+					var empty_instance = load(empty_scene_path)
+					var empty_node = empty_instance.instantiate()
+					empty_node.position = Vector2((j * cell_size_x) - 300, (i * cell_size_y) - 200)
+					add_child(empty_node)
+				else:
+					# If it's not 'E', instantiate the piece based on its name
+					var piece = board[i][j]
+					var scene_path = characterScenes[piece]
+					var character_instance = load(scene_path)
+					var character_node = character_instance.instantiate()
+					character_node.position = Vector2((j * cell_size_x) - 300, (i * cell_size_y) - 200)
+					character_node.get_node("TouchScreenButton").row = i
+					character_node.get_node("TouchScreenButton").col = j
+					add_child(character_node)
+
 
 func save_board_state():
 	# Create a deep copy of the current board to save in history
@@ -309,3 +330,12 @@ func save_board_state():
 		current_state.append(row_copy)
 	history.append(current_state)
 
+func fill_empty_spots():
+	for i in range(board.size()):
+			for j in range(board[i].size()):
+				if board[i][j] == 'E':
+					var empty_scene_path = characterScenes['E']
+					var empty_instance = load(empty_scene_path)
+					var empty_node = empty_instance.instantiate()
+					empty_node.position = Vector2((j * cell_size_x) - 300, (i * cell_size_y) - 200)
+					add_child(empty_node)

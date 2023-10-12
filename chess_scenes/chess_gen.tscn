@@ -32,4 +32,4 @@ position = Vector2(-390, -1097)
 texture_normal = ExtResource("3_wiort")
 script = ExtResource("4_4q0h7")
 
-[connection signal="pressed" from="redo_button" to="redo_button" method="undo_move"]
+[connection signal="pressed" from="redo_button" to="Pieces" method="undo_move"]
