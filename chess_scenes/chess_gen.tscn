@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://nl8mbkqld6nx"]
+[gd_scene load_steps=5 format=3 uid="uid://nl8mbkqld6nx"]
 
 [ext_resource type="Script" path="res://chess_scripts/chess_script.gd" id="1_fcm4s"]
 [ext_resource type="Script" path="res://chess_scripts/global_row_column.gd" id="2_l0qhm"]
 [ext_resource type="Texture2D" uid="uid://dxd3xm5w5f44p" path="res://icon.svg" id="3_wiort"]
+[ext_resource type="Script" path="res://chess_scenes/undo.gd" id="4_4q0h7"]
 
 [node name="chess_script" type="Node2D"]
 
@@ -29,5 +30,6 @@ script = ExtResource("2_l0qhm")
 [node name="redo_button" type="TouchScreenButton" parent="."]
 position = Vector2(-390, -1097)
 texture_normal = ExtResource("3_wiort")
+script = ExtResource("4_4q0h7")
 
-[connection signal="pressed" from="redo_button" to="piece_movement" method="undo_move"]
+[connection signal="pressed" from="redo_button" to="redo_button" method="undo_move"]
