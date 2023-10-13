@@ -25,11 +25,7 @@ func undo_move():
 		second_piece.show()
 		
 		# Print the data for debugging (optional)
-		print(global_row_column.previous_node)
-		print(global_row_column.hidden_node)
-		print(global_row_column.previous_node_position)
-		print(global_row_column.previous_node_row)
-		print(global_row_column.previous_node_col)
+		
 		
 		# Remove the undone steps from the history lists
 		global_row_column.previous_node.erase(i)

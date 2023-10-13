@@ -36,9 +36,9 @@ var i = 0
 var first_piece
 var second_piece
 func undo_move():
-	print(previous_node)
+
 	if previous_node.size() > 0 and hidden_node.size() > 0:
-		print("undo")
+
 		get_parent().get_node("Pieces").undo_move()
 		first_piece = get_node("\"" + previous_node[0] + "\"")
 		second_piece = get_node("\"" + hidden_node[0] + "\"")

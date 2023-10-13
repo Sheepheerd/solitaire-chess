@@ -22,4 +22,3 @@ texture_normal = ExtResource("1_nyhs3")
 script = ExtResource("1_ymmh2")
 
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="_on_pressed"]
-[connection signal="released" from="TouchScreenButton" to="TouchScreenButton" method="_on_released"]

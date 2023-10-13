@@ -11,8 +11,8 @@ var has_set_paths = false
 #var which_selection: int
 func _ready():
 	board = get_parent().get_parent().board
-	print(row)
-	print(col)
+
+
 	
 func _on_pressed():
 	await get_tree().create_timer(.1).timeout
@@ -29,8 +29,7 @@ func _on_pressed():
 			get_parent().get_parent().source_col = col
 			#await get_tree().create_timer(.5).timeout
 			get_parent().get_parent().has_selected_piece_one = true
-			print(get_parent().get_parent().source_row)
-			print(get_parent().get_parent().source_col)
+			
 		elif get_parent().get_parent().has_selected_piece_one == true:
 			global_row_column.second_piece_node = get_parent().get_path()
 			global_row_column.second_row = row
@@ -62,13 +61,9 @@ func _on_pressed():
 #		2:
 #			get_parent().get_parent().has_selected_piece_one = false
 #
+
+
+
+
 func _on_released():
-	#selected = false
-	pass
-			# Place the piece on the grid here based on chess rules
-
-	
-func _process(delta):
-	pass
-
-
+	pass # Replace with function body.

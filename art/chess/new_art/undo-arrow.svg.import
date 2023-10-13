@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3qudosyuqvpc"
-path="res://.godot/imported/minimal_chess.jpg-defd82a0fe1961cef409fc165ab4ca9c.ctex"
+uid="uid://dcjdc5g5vv7og"
+path="res://.godot/imported/undo-arrow.svg-24b99667b868bf609abc91d9849b47a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/chess/minimal_chess.jpg"
-dest_files=["res://.godot/imported/minimal_chess.jpg-defd82a0fe1961cef409fc165ab4ca9c.ctex"]
+source_file="res://art/chess/new_art/undo-arrow.svg"
+dest_files=["res://.godot/imported/undo-arrow.svg-24b99667b868bf609abc91d9849b47a4.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

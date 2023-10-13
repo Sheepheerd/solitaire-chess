@@ -14,7 +14,7 @@ var cell_size_x = 128  # Adjust this value according to your grid or tile size
 var cell_size_y = 128  # Adjust this value according to your grid or tile size
 
 var num_pieces = 0
-var array_size = 6
+var array_size = 7
 
 # Define the available chess pieces
 var available_pieces = ['K', 'P', 'R', 'B', 'B', 'N', 'N', 'P', 'P', 'P', 'B', 'B', 'N', 'N', 'P', 'P']
@@ -28,7 +28,7 @@ var cell
 var row_str
 func _ready():
 	if difficulty == "easy":
-		num_pieces = 10
+		num_pieces = 11
 	elif difficulty == "medium":
 		num_pieces = 5
 	elif difficulty == "hard":
@@ -57,7 +57,7 @@ func _ready():
 	add_child(character_node)
 	
 	#place first piece random
-	print(initial_piece)
+
 	board[row][col] = initial_piece
 	character_node.position =  Vector2((col * cell_size_x) - 303, (row * cell_size_y) - 303)
 	# Place the remaining pieces on the board
@@ -79,7 +79,7 @@ func _ready():
 		for j in range(board[i].size()):
 			cell = board[i][j]
 			row_str += (str(cell if cell != 'E' else '.')) + ' '
-		print(row_str)
+
 		
 	save_board_state()
 
@@ -154,10 +154,10 @@ func place_remaining_pieces(initial_piece):
 			for f in range(array_size * array_size):
 				if is_valid_move(row, col, piece):
 					# If a valid move is found, place the piece and break the loop
-					print(available_pieces)
-					print(available_pieces[i])
+
+
 					available_pieces.erase(available_pieces[i])
-					print(available_pieces)
+
 					available_pieces = available_pieces.filter(func(value): return value != null)
 					available_pieces.append('Z')
 					board[row][col] = piece
@@ -166,7 +166,7 @@ func place_remaining_pieces(initial_piece):
 					found_valid_move = true
 					var scene_path = characterScenes[piece]
 					var character_instance = load(scene_path)
-					print(scene_path)
+
 					# Create an instance of the scene
 					var character_node = character_instance.instantiate()
 					add_child(character_node)
@@ -189,14 +189,14 @@ func place_remaining_pieces(initial_piece):
 
 			# If no valid move was found, reset the original position and try a different piece
 			if not found_valid_move:
-				print("no move found with" + available_pieces[i])
+
 				row = original_row
 				col = original_col
 				i = i - 1
-			else:
-				# A valid move was found, so remove the piece from the available_pieces array
-				
-				print("move found")
+#			else:
+#				# A valid move was found, so remove the piece from the available_pieces array
+#
+#				print("move found")
 	save_board_state()
 
 var source_row
@@ -254,7 +254,7 @@ func move_piece():
 		#else:
 			if dest_piece != 'E':
 				save_board_state()
-				print("You have overriden " + dest_piece + " with " + source_piece + ".")
+
 				board[dest_row][dest_col] = source_piece
 				board[source_row][source_col] = 'E'
 				for i in range(board.size()):
@@ -262,12 +262,12 @@ func move_piece():
 					for j in range(board[i].size()):
 						cell = board[i][j]
 						row_str += (str(cell if cell != 'E' else '.')) + ' '
-					print(row_str)
+
 				game_win()
 				return true
 		else:
 			move_fail = true
-			print("invalid move. Try again.")
+
 			#return false
 			
 			
@@ -339,3 +339,7 @@ func fill_empty_spots():
 					var empty_node = empty_instance.instantiate()
 					empty_node.position = Vector2((j * cell_size_x) - 303, (i * cell_size_y) - 303)
 					add_child(empty_node)
+
+
+func _on_new_game_pressed():
+	get_tree().reload_current_scene()
