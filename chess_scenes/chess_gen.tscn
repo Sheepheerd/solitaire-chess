@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://nl8mbkqld6nx"]
+[gd_scene load_steps=6 format=3 uid="uid://nl8mbkqld6nx"]
 
 [ext_resource type="Script" path="res://chess_scripts/chess_script.gd" id="1_fcm4s"]
 [ext_resource type="Script" path="res://chess_scripts/global_row_column.gd" id="2_l0qhm"]
 [ext_resource type="Texture2D" uid="uid://dxd3xm5w5f44p" path="res://icon.svg" id="3_wiort"]
 [ext_resource type="Script" path="res://chess_scenes/undo.gd" id="4_4q0h7"]
+[ext_resource type="Texture2D" uid="uid://pjbwuwl10gpp" path="res://art/chess/chessboard.svg" id="5_0bfkp"]
 
 [node name="chess_script" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Chessboard" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_0bfkp")
 
 [node name="Pieces" type="Control" parent="."]
 layout_mode = 3
@@ -22,6 +27,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_fcm4s")
 
 [node name="piece_movement" type="Node" parent="."]

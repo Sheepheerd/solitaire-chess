@@ -21,6 +21,7 @@ visible = false
 texture = ExtResource("1_ge401")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2(-64, -64)
 texture_normal = ExtResource("2_exkvi")
 script = ExtResource("3_nqprm")

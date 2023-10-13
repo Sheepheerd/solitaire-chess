@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgvhqdkc53n22"]
 
-[ext_resource type="Texture2D" uid="uid://d146iouqw1pao" path="res://art/chess/pawn.svg" id="2_71txs"]
+[ext_resource type="Texture2D" uid="uid://ld6jrkmccj6x" path="res://art/chess/new_art/Tabler-icons_chess.png" id="1_tb6xk"]
 [ext_resource type="Script" path="res://chess_scenes/pieces/piece_movement.gd" id="3_5bjpx"]
 
 [node name="Control" type="Control"]
@@ -13,11 +13,13 @@ size_flags_horizontal = 4
 [node name="Pawn" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Pawn"]
+visible = false
 position = Vector2(-2, 0)
-texture = ExtResource("2_71txs")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." groups=["Pawn"]]
-position = Vector2(-64, -64)
+position = Vector2(-60, -55)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_tb6xk")
 script = ExtResource("3_5bjpx")
 
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="_on_pressed"]
