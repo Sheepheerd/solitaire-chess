@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d34se7utkr65d"]
 
-[ext_resource type="Texture2D" uid="uid://c74hnksdcq0pn" path="res://art/chess/new_art/Tabler-icons_chess-knight.svg.png" id="1_4rhnb"]
+[ext_resource type="Texture2D" uid="uid://c74hnksdcq0pn" path="res://art/chess/new_art/Tabler-icons_chess-knight.svg.png" id="1_v2ixa"]
 [ext_resource type="Script" path="res://chess_scenes/pieces/piece_movement.gd" id="3_87erv"]
 
 [node name="Control" type="Control"]
@@ -16,9 +16,9 @@ visible = false
 position = Vector2(-2, 0)
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." groups=["Knight"]]
-position = Vector2(-60, -58)
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("1_4rhnb")
+position = Vector2(-64, -64)
+scale = Vector2(0.533, 0.533)
+texture_normal = ExtResource("1_v2ixa")
 script = ExtResource("3_87erv")
 
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="_on_pressed"]

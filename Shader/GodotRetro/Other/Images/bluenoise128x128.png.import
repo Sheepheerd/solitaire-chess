@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvu1233dh4yi6"
-path="res://.godot/imported/King.png-32f758531abe870addba268adb63c089.ctex"
+uid="uid://cuunr8cgek4ll"
+path="res://.godot/imported/bluenoise128x128.png-f2a8f2d9cc95d4a0d427c3b389ec5c82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chess_scenes/pieces/sprites/King.png"
-dest_files=["res://.godot/imported/King.png-32f758531abe870addba268adb63c089.ctex"]
+source_file="res://Shader/GodotRetro/Other/Images/bluenoise128x128.png"
+dest_files=["res://.godot/imported/bluenoise128x128.png-f2a8f2d9cc95d4a0d427c3b389ec5c82.ctex"]
 
 [params]
 

@@ -1,18 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://nl8mbkqld6nx"]
+[gd_scene load_steps=9 format=3 uid="uid://nl8mbkqld6nx"]
 
 [ext_resource type="Script" path="res://chess_scripts/chess_script.gd" id="1_fcm4s"]
+[ext_resource type="Texture2D" uid="uid://dvtphd2u648d3" path="res://art/chess/backdrop.svg" id="1_jtgkk"]
 [ext_resource type="Script" path="res://chess_scripts/global_row_column.gd" id="2_l0qhm"]
 [ext_resource type="Texture2D" uid="uid://dcjdc5g5vv7og" path="res://art/chess/new_art/undo-arrow.svg" id="4_00pwy"]
 [ext_resource type="Script" path="res://chess_scenes/undo.gd" id="4_4q0h7"]
 [ext_resource type="Texture2D" uid="uid://pjbwuwl10gpp" path="res://art/chess/chessboard.svg" id="5_0bfkp"]
+[ext_resource type="Texture2D" uid="uid://5pj1poov1vos" path="res://art/chess/square.svg" id="5_c5fij"]
 [ext_resource type="Texture2D" uid="uid://bxnsjg7lrbas4" path="res://art/chess/new_art/plus.svg" id="6_5j28i"]
 
 [node name="chess_script" type="Node2D"]
 
+[node name="Backdrop" type="Sprite2D" parent="."]
+texture = ExtResource("1_jtgkk")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Chessboard" type="Sprite2D" parent="."]
-scale = Vector2(1.2, 1.2)
 texture = ExtResource("5_0bfkp")
 
 [node name="Pieces" type="Control" parent="."]
@@ -28,21 +32,30 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.2, 1.2)
 script = ExtResource("1_fcm4s")
 
 [node name="piece_movement" type="Node" parent="."]
 script = ExtResource("2_l0qhm")
 
+[node name="firstSquare" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-384, 704)
+texture = ExtResource("5_c5fij")
+offset = Vector2(64, 64)
+
 [node name="redo_button" type="TouchScreenButton" parent="."]
-position = Vector2(-461, 747)
-scale = Vector2(0.192, 0.192)
+position = Vector2(-367, 721)
 texture_normal = ExtResource("4_00pwy")
 script = ExtResource("4_4q0h7")
 
+[node name="secondSquare" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(256, 704)
+texture = ExtResource("5_c5fij")
+offset = Vector2(64, 64)
+
 [node name="new_game" type="TouchScreenButton" parent="."]
-position = Vector2(307, 747)
-scale = Vector2(0.192, 0.192)
+position = Vector2(277, 721)
 texture_normal = ExtResource("6_5j28i")
 
 [connection signal="pressed" from="redo_button" to="Pieces" method="undo_move"]

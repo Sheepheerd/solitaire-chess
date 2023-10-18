@@ -10,8 +10,8 @@ var characterScenes = {
 	# Add more characters and scene paths as needed
 }
 
-var cell_size_x = 128  # Adjust this value according to your grid or tile size
-var cell_size_y = 128  # Adjust this value according to your grid or tile size
+var cell_size_x = 128 # Adjust this value according to your grid or tile size
+var cell_size_y = 128 # Adjust this value according to your grid or tile size
 
 var num_pieces = 0
 var array_size = 7
@@ -59,7 +59,7 @@ func _ready():
 	#place first piece random
 
 	board[row][col] = initial_piece
-	character_node.position =  Vector2((col * cell_size_x) - 303, (row * cell_size_y) - 303)
+	character_node.position =  Vector2((col * cell_size_x) - 300 , (row * cell_size_y) - 300)
 	# Place the remaining pieces on the board
 
 	# Place the remaining pieces on the board
@@ -71,7 +71,7 @@ func _ready():
 				var empty_scene_path = characterScenes['E']
 				var empty_instance = load(empty_scene_path)
 				var empty_node = empty_instance.instantiate()
-				empty_node.position = Vector2((j * cell_size_x) - 303, (i * cell_size_y) - 303)
+				empty_node.position = Vector2((j * cell_size_x) - 300, (i * cell_size_y) - 300)
 				add_child(empty_node)
 
 	for i in range(board.size()):
@@ -172,7 +172,7 @@ func place_remaining_pieces(initial_piece):
 					add_child(character_node)
 					# Add the character to your game scene (you may need to adjust the position)
 					# For example, if you have a parent node for characters:
-					character_node.position = Vector2((col * cell_size_x) - 303, (row * cell_size_y) - 303)
+					character_node.position = Vector2((col * cell_size_x) - 300, (row * cell_size_y) - 300)
 					character_node.get_node("TouchScreenButton").piece_name = piece
 					#if has_assigned_row_col == false:
 					character_node.get_node("TouchScreenButton").row = row
@@ -306,7 +306,7 @@ func undo_move():
 					var empty_scene_path = characterScenes['E']
 					var empty_instance = load(empty_scene_path)
 					var empty_node = empty_instance.instantiate()
-					empty_node.position = Vector2((j * cell_size_x) - 303, (i * cell_size_y) - 303)
+					empty_node.position = Vector2((j * cell_size_x) - 300, (i * cell_size_y) - 300)
 					add_child(empty_node)
 				else:
 					# If it's not 'E', instantiate the piece based on its name
@@ -314,7 +314,7 @@ func undo_move():
 					var scene_path = characterScenes[piece]
 					var character_instance = load(scene_path)
 					var character_node = character_instance.instantiate()
-					character_node.position = Vector2((j * cell_size_x) - 303, (i * cell_size_y) - 303)
+					character_node.position = Vector2((j * cell_size_x) - 300, (i * cell_size_y) - 300)
 					character_node.get_node("TouchScreenButton").row = i
 					character_node.get_node("TouchScreenButton").col = j
 					add_child(character_node)
@@ -337,7 +337,7 @@ func fill_empty_spots():
 					var empty_scene_path = characterScenes['E']
 					var empty_instance = load(empty_scene_path)
 					var empty_node = empty_instance.instantiate()
-					empty_node.position = Vector2((j * cell_size_x) - 303, (i * cell_size_y) - 303)
+					empty_node.position = Vector2((j * cell_size_x) - 300, (i * cell_size_y) - 300)
 					add_child(empty_node)
 
 

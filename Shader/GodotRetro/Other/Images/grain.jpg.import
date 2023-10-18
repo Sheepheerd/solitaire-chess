@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q8g4ltgqnjsy"
-path="res://.godot/imported/Rook.png-55bb2743c005307a9d995ae42a37b2e1.ctex"
+uid="uid://dp4ukqt2u6smn"
+path="res://.godot/imported/grain.jpg-b0ad50ae3fe9f24dbeac93ac79042d87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chess_scenes/pieces/sprites/Rook.png"
-dest_files=["res://.godot/imported/Rook.png-55bb2743c005307a9d995ae42a37b2e1.ctex"]
+source_file="res://Shader/GodotRetro/Other/Images/grain.jpg"
+dest_files=["res://.godot/imported/grain.jpg-b0ad50ae3fe9f24dbeac93ac79042d87.ctex"]
 
 [params]
 

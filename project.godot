@@ -33,3 +33,4 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+anti_aliasing/canvas_textures/default_texture_filter=1

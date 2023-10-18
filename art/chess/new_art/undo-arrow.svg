@@ -1,14 +1,42 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 width="800px" height="800px" viewBox="0 0 454.839 454.839"
-	 xml:space="preserve">
-<g>
-	<path d="M404.908,283.853c0,94.282-76.71,170.986-170.986,170.986h-60.526c-10.03,0-18.158-8.127-18.158-18.157v-6.053
-		c0-10.031,8.127-18.158,18.158-18.158h60.526c70.917,0,128.618-57.701,128.618-128.618c0-70.917-57.701-128.618-128.618-128.618
-		H122.255l76.905,76.905c8.26,8.257,8.26,21.699,0,29.956c-8.015,8.009-21.964,7.997-29.961,0L56.137,149.031
-		c-4.001-4.001-6.206-9.321-6.206-14.981c0-5.656,2.205-10.979,6.206-14.978L169.205,6.002c7.997-8.003,21.958-8.003,29.956,0
-		c8.26,8.255,8.26,21.699,0,29.953l-76.905,76.911h111.666C328.198,112.866,404.908,189.573,404.908,283.853z"/>
-</g>
-</svg>
+
+<svg
+   fill="#000000"
+   version="1.1"
+   id="Capa_1"
+   width="92"
+   height="92"
+   viewBox="0 0 52.306485 52.306485"
+   xml:space="preserve"
+   sodipodi:docname="undo-arrow.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs1" /><sodipodi:namedview
+   id="namedview1"
+   pagecolor="#505050"
+   bordercolor="#eeeeee"
+   borderopacity="1"
+   inkscape:showpageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#505050"
+   inkscape:zoom="3.549676"
+   inkscape:cx="51.131427"
+   inkscape:cy="62.259203"
+   inkscape:window-width="1920"
+   inkscape:window-height="1080"
+   inkscape:window-x="3000"
+   inkscape:window-y="460"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_1"
+   showgrid="false" />&#10;<g
+   id="g1"
+   transform="matrix(0.11499994,0,0,0.11499994,0.51197425,-2.2125002e-4)"
+   style="stroke-width:8.69566;fill:#ffffff">&#10;	<path
+   d="m 404.908,283.853 c 0,94.282 -76.71,170.986 -170.986,170.986 h -60.526 c -10.03,0 -18.158,-8.127 -18.158,-18.157 v -6.053 c 0,-10.031 8.127,-18.158 18.158,-18.158 h 60.526 c 70.917,0 128.618,-57.701 128.618,-128.618 0,-70.917 -57.701,-128.618 -128.618,-128.618 H 122.255 l 76.905,76.905 c 8.26,8.257 8.26,21.699 0,29.956 -8.015,8.009 -21.964,7.997 -29.961,0 L 56.137,149.031 c -4.001,-4.001 -6.206,-9.321 -6.206,-14.981 0,-5.656 2.205,-10.979 6.206,-14.978 L 169.205,6.002 c 7.997,-8.003 21.958,-8.003 29.956,0 8.26,8.255 8.26,21.699 0,29.953 l -76.905,76.911 h 111.666 c 94.276,0 170.986,76.707 170.986,170.987 z"
+   id="path1"
+   style="stroke-width:8.69566;fill:#ffffff" />&#10;</g>&#10;</svg>

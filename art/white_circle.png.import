@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnl8fjutu7n6h"
-path="res://.godot/imported/Pawn.png-ca21776f6680d5d363599b4863b90b3c.ctex"
+uid="uid://daxcqy5x0rri2"
+path="res://.godot/imported/white_circle.png-165f14ef3ab44ef5420bacc754d9b641.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chess_scenes/pieces/sprites/Pawn.png"
-dest_files=["res://.godot/imported/Pawn.png-ca21776f6680d5d363599b4863b90b3c.ctex"]
+source_file="res://art/white_circle.png"
+dest_files=["res://.godot/imported/white_circle.png-165f14ef3ab44ef5420bacc754d9b641.ctex"]
 
 [params]
 

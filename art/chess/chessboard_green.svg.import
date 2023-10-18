@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwv1lylmtw4l2"
-path="res://.godot/imported/Bishop.png-9e3b55a37ab9a0c7cff7694971ce809d.ctex"
+uid="uid://kvnh7ag7xxfn"
+path="res://.godot/imported/chessboard_green.svg-d49a55c8f571de6aa2f7425fc57eaa0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chess_scenes/pieces/sprites/Bishop.png"
-dest_files=["res://.godot/imported/Bishop.png-9e3b55a37ab9a0c7cff7694971ce809d.ctex"]
+source_file="res://art/chess/chessboard_green.svg"
+dest_files=["res://.godot/imported/chessboard_green.svg-d49a55c8f571de6aa2f7425fc57eaa0b.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

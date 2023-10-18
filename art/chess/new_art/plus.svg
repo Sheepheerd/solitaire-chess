@@ -1,15 +1,45 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 330 330" xml:space="preserve">
-<g>
-	<path d="M281.672,48.328C250.508,17.163,209.073,0,164.999,0C120.927,0,79.492,17.163,48.328,48.328
-		c-64.333,64.334-64.333,169.011,0,233.345C79.492,312.837,120.927,330,165,330c44.073,0,85.508-17.163,116.672-48.328
-		C346.005,217.339,346.005,112.661,281.672,48.328z M260.46,260.46C234.961,285.957,201.06,300,165,300
-		c-36.06,0-69.961-14.043-95.46-39.54c-52.636-52.637-52.636-138.282,0-190.919C95.039,44.042,128.94,30,164.999,30
-		c36.06,0,69.961,14.042,95.46,39.54C313.095,122.177,313.095,207.823,260.46,260.46z"/>
-	<path d="M254.999,150H180V75c0-8.284-6.716-15-15-15s-15,6.716-15,15v75H75c-8.284,0-15,6.716-15,15s6.716,15,15,15h75v75
-		c0,8.284,6.716,15,15,15s15-6.716,15-15v-75h74.999c8.284,0,15-6.716,15-15S263.284,150,254.999,150z"/>
-</g>
-</svg>
+
+<svg
+   fill="#000000"
+   height="92"
+   width="92"
+   version="1.1"
+   id="Capa_1"
+   viewBox="0 0 37.95 37.95"
+   xml:space="preserve"
+   sodipodi:docname="plus.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs2" /><sodipodi:namedview
+   id="namedview2"
+   pagecolor="#505050"
+   bordercolor="#eeeeee"
+   borderopacity="1"
+   inkscape:showpageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#505050"
+   showgrid="false"
+   inkscape:zoom="5.8831284"
+   inkscape:cx="42.749364"
+   inkscape:cy="44.704107"
+   inkscape:window-width="946"
+   inkscape:window-height="1036"
+   inkscape:window-x="3963"
+   inkscape:window-y="493"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_1" />&#10;<g
+   id="g2"
+   transform="matrix(0.11505456,0,0,0.115,0.06924698,0)"
+   style="stroke-width:8.69359;fill:#ffffff">&#10;	<path
+   d="M 281.672,48.328 C 250.508,17.163 209.073,0 164.999,0 120.927,0 79.492,17.163 48.328,48.328 c -64.333,64.334 -64.333,169.011 0,233.345 C 79.492,312.837 120.927,330 165,330 c 44.073,0 85.508,-17.163 116.672,-48.328 64.333,-64.333 64.333,-169.011 0,-233.344 z M 260.46,260.46 C 234.961,285.957 201.06,300 165,300 128.94,300 95.039,285.957 69.54,260.46 16.904,207.823 16.904,122.178 69.54,69.541 95.039,44.042 128.94,30 164.999,30 c 36.06,0 69.961,14.042 95.46,39.54 52.636,52.637 52.636,138.283 10e-4,190.92 z"
+   id="path1"
+   style="stroke-width:8.69359;fill:#ffffff" />&#10;	<path
+   d="M 254.999,150 H 180 V 75 c 0,-8.284 -6.716,-15 -15,-15 -8.284,0 -15,6.716 -15,15 v 75 H 75 c -8.284,0 -15,6.716 -15,15 0,8.284 6.716,15 15,15 h 75 v 75 c 0,8.284 6.716,15 15,15 8.284,0 15,-6.716 15,-15 v -75 h 74.999 c 8.284,0 15,-6.716 15,-15 0,-8.284 -6.715,-15 -15,-15 z"
+   id="path2"
+   style="stroke-width:8.69359;fill:#ffffff" />&#10;</g>&#10;</svg>
