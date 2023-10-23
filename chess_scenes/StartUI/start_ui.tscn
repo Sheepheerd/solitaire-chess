@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://br65rhsyi71bs"]
+
+[ext_resource type="Texture2D" uid="uid://dvtphd2u648d3" path="res://art/chess/backdrop.svg" id="1_t1c5m"]
+[ext_resource type="Script" path="res://chess_scenes/StartUI/Start.gd" id="2_cqe8i"]
+[ext_resource type="Texture2D" uid="uid://pjbwuwl10gpp" path="res://art/chess/chessboard.svg" id="2_t774e"]
+[ext_resource type="FontFile" uid="uid://bgsdhl20p74rw" path="res://fonts/Chivo/static/Chivo-Thin.ttf" id="3_vbk3h"]
+[ext_resource type="Script" path="res://chess_scenes/StartUI/play_button.gd" id="4_2pso1"]
+[ext_resource type="Script" path="res://chess_scenes/StartUI/label_pulse.gd" id="5_spd8t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_alh41"]
+font = ExtResource("3_vbk3h")
+font_size = 121
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rmcd"]
+size = Vector2(257.215, 125.575)
+
+[node name="StartUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+position = Vector2(540, 1200)
+texture = ExtResource("1_t1c5m")
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_cqe8i")
+
+[node name="Chessboard" type="Sprite2D" parent="Control"]
+position = Vector2(540, 1200)
+texture = ExtResource("2_t774e")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 1792.0
+offset_right = 1080.0
+offset_bottom = 1995.0
+text = "Play"
+label_settings = SubResource("LabelSettings_alh41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_spd8t")
+
+[node name="Timer" type="Timer" parent="Control/Label"]
+one_shot = true
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 304.0
+offset_right = 1080.0
+offset_bottom = 452.0
+grow_horizontal = 2
+text = "Solitaire Chess"
+label_settings = SubResource("LabelSettings_alh41")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(539, 1904)
+shape = SubResource("RectangleShape2D_0rmcd")
+script = ExtResource("4_2pso1")
+
+[connection signal="timeout" from="Control/Label/Timer" to="Control/Label" method="change"]
+[connection signal="pressed" from="Control/TouchScreenButton" to="Control/TouchScreenButton" method="_on_pressed"]

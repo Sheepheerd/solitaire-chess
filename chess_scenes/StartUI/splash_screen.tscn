@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://drnd2kc0khryf"]
+
+[ext_resource type="Texture2D" uid="uid://dvtphd2u648d3" path="res://art/chess/backdrop.svg" id="1_1whq7"]
+[ext_resource type="Script" path="res://chess_scenes/StartUI/start_ui.gd" id="2_k5a8x"]
+[ext_resource type="Texture2D" uid="uid://coti1i4g6kvca" path="res://art/chess/splash_screen/splash_screen.png" id="2_rlc4u"]
+
+[node name="Splash_Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+texture = ExtResource("1_1whq7")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_k5a8x")
+
+[node name="SplashScreen" type="Sprite2D" parent="Control"]
+texture = ExtResource("2_rlc4u")
+
+[node name="Camera2D" type="Camera2D" parent="Control"]

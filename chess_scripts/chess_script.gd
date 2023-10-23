@@ -26,7 +26,19 @@ var col
 var initial_piece
 var cell
 var row_str
+var config
 func _ready():
+	config = ConfigFile.new()
+	var err = config.load("user://wins.cfg")
+	
+	if config.get_value("player", "score") == null:
+		config.set_value("player", "score", 0)
+		get_parent().get_node("UI/Scope").text = "0"
+		config.save("user://wins.cfg")
+	else:
+		get_parent().get_node("UI/Scope").text = str(config.get_value("player", "score"))
+	#if err != OK:
+		#return
 	if difficulty == "easy":
 		num_pieces = 11
 	elif difficulty == "medium":
@@ -83,7 +95,7 @@ func _ready():
 		
 	save_board_state()
 
-#
+
 # Function to check if a piece can be placed at a given position
 func is_valid_move(row, col, piece):
 	# Check if the position is already occupied
@@ -125,30 +137,34 @@ func place_remaining_pieces(initial_piece):
 			
 			if i == 0:
 				# If the first piece is a Knight (N), the second piece must also be a Knight
-#				if initial_piece == 'N':
-#					piece = 'N'
-#					available_pieces.erase(piece)
-#					available_pieces = available_pieces.filter(func(value): return value != null)
-#					print(available_pieces)
-#				# If the first piece is a Rook (R), the second piece can be a Rook or a King
-#				elif initial_piece == 'R':
-#					var r_k_array = ['R', 'K']
-#					piece = r_k_array[randi() % r_k_array.size()]
-#					available_pieces.erase(piece)
-#					available_pieces = available_pieces.filter(func(value): return value != null)
-#				# If the first piece is a Bishop (B), the second piece can be a Bishop, Pawn, or King
-#				elif initial_piece == 'B':
-#					var b_p_k_array = ['B', 'P', 'K']
-#					piece = b_p_k_array[randi() % b_p_k_array.size()]
-#					available_pieces.erase(piece)
-#					available_pieces = available_pieces.filter(func(value): return value != null)
-#				# If the first piece is a Pawn (P), the second piece must be a King or Bishop
-#				elif initial_piece == 'P':
-#					var k_b_array = ['K', 'B']
-#					piece = k_b_array[randi() % k_b_array.size()]
-#					available_pieces.erase(piece)
-#					available_pieces = available_pieces.filter(func(value): return value != null)
-			#else:
+				if initial_piece == 'N':
+					piece = 'N'
+					available_pieces.erase(piece)
+					available_pieces = available_pieces.filter(func(value): return value != null)
+					print(available_pieces)
+					available_pieces.append('Z')
+				# If the first piece is a Rook (R), the second piece can be a Rook or a King
+				elif initial_piece == 'R':
+					var r_k_array = ['R', 'K']
+					piece = r_k_array[randi() % r_k_array.size()]
+					available_pieces.erase(piece)
+					available_pieces = available_pieces.filter(func(value): return value != null)
+					available_pieces.append('Z')
+				# If the first piece is a Bishop (B), the second piece can be a Bishop, Pawn, or King
+				elif initial_piece == 'B':
+					var b_p_k_array = ['B', 'P', 'K']
+					piece = b_p_k_array[randi() % b_p_k_array.size()]
+					available_pieces.erase(piece)
+					available_pieces = available_pieces.filter(func(value): return value != null)
+					available_pieces.append('Z')
+				# If the first piece is a Pawn (P), the second piece must be a King or Bishop
+				elif initial_piece == 'P':
+					var k_b_array = ['K', 'B']
+					piece = k_b_array[randi() % k_b_array.size()]
+					available_pieces.erase(piece)
+					available_pieces = available_pieces.filter(func(value): return value != null)
+					available_pieces.append('Z')
+			else:
 				piece = available_pieces[i]
 			# Try placing the piece at different positions until a valid move is found
 			for f in range(array_size * array_size):
@@ -271,6 +287,7 @@ func move_piece():
 			#return false
 			
 			
+var wins
 func game_win():
 	var non_empty_count = 0
 
@@ -278,11 +295,25 @@ func game_win():
 		for j in range(board[i].size()):
 			if board[i][j] != 'E':
 				non_empty_count += 1
-	
+
 	# Check if there's only one non-empty cell left
 	if non_empty_count == 1:
+		get_parent().get_node("redo_button").hide()
 		print("Congratulations! You have won the game!")
 		# Implement game over logic or any other actions you want to take
+		if config.has_section_key("player", "score") == false:
+			config.set_value("player", "score", 0)
+		var value = config.get_value("player", "score")
+		print(value)
+		config.set_value("player", "score", value + 1)
+		get_parent().get_node("UI/Scope").text = str(config.get_value("player", "score"))
+		# Load the current value
+
+		# Increase the value and save it
+		config.save("user://wins.cfg")
+
+		
+		
 var history = []
 
 func _on_UndoButton_pressed():
@@ -291,6 +322,7 @@ func _on_UndoButton_pressed():
 	
 func undo_move():
 	if history.size() > 1:
+		has_selected_piece_one = false
 		for i in get_child_count():
 			get_child(i).queue_free()
 		# Restore the previous board state from history

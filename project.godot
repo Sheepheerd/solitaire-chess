@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="solitaire_chess"
-run/main_scene="res://chess_scenes/chess_gen.tscn"
+config/name="Solitaire Chess"
+run/main_scene="res://chess_scenes/StartUI/splash_screen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://art/chess/splash_screen/background.png"
+config/windows_native_icon="res://art/chess/icon.ico"
 
 [autoload]
 
@@ -23,7 +24,7 @@ global_row_column="*res://chess_scripts/global_row_column.gd"
 
 window/size/viewport_width=1080
 window/size/viewport_height=2400
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/handheld/orientation=1
 
 [input_devices]

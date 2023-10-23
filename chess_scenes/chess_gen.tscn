@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://nl8mbkqld6nx"]
+[gd_scene load_steps=12 format=3 uid="uid://nl8mbkqld6nx"]
 
 [ext_resource type="Script" path="res://chess_scripts/chess_script.gd" id="1_fcm4s"]
 [ext_resource type="Texture2D" uid="uid://dvtphd2u648d3" path="res://art/chess/backdrop.svg" id="1_jtgkk"]
@@ -8,8 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://pjbwuwl10gpp" path="res://art/chess/chessboard.svg" id="5_0bfkp"]
 [ext_resource type="Texture2D" uid="uid://5pj1poov1vos" path="res://art/chess/square.svg" id="5_c5fij"]
 [ext_resource type="Texture2D" uid="uid://bxnsjg7lrbas4" path="res://art/chess/new_art/plus.svg" id="6_5j28i"]
+[ext_resource type="FontFile" uid="uid://bgsdhl20p74rw" path="res://fonts/Chivo/static/Chivo-Thin.ttf" id="9_g3rl0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lii6"]
+font = ExtResource("9_g3rl0")
+font_size = 121
+
+[sub_resource type="LabelSettings" id="LabelSettings_wevhv"]
+font = ExtResource("9_g3rl0")
+font_size = 80
 
 [node name="chess_script" type="Node2D"]
+position = Vector2(540, 1200)
 
 [node name="Backdrop" type="Sprite2D" parent="."]
 texture = ExtResource("1_jtgkk")
@@ -57,6 +67,37 @@ offset = Vector2(64, 64)
 [node name="new_game" type="TouchScreenButton" parent="."]
 position = Vector2(277, 721)
 texture_normal = ExtResource("6_5j28i")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -540.0
+offset_top = -1200.0
+offset_right = -540.0
+offset_bottom = -1200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 304.0
+offset_right = 1080.0
+offset_bottom = 452.0
+text = "Solitaire Chess"
+label_settings = SubResource("LabelSettings_3lii6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scope" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 2212.0
+offset_right = 1080.0
+offset_bottom = 2400.0
+label_settings = SubResource("LabelSettings_wevhv")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="redo_button" to="Pieces" method="undo_move"]
 [connection signal="pressed" from="new_game" to="Pieces" method="_on_new_game_pressed"]
