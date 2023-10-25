@@ -16,10 +16,11 @@ var cell_size_y = 128 # Adjust this value according to your grid or tile size
 var num_pieces = 0
 var array_size = 7
 
-# Define the available chess pieces
-var available_pieces = ['K', 'P', 'R', 'B', 'B', 'N', 'N', 'P', 'P', 'P', 'B', 'B', 'N', 'N', 'P', 'P']
 
-var difficulty = "easy"
+# Define the available chess pieces
+#var available_pieces = ['K', 'P', 'R', 'B', 'B', 'N', 'N', 'P', 'P', 'P', 'B', 'B', 'N', 'N', 'P', 'P']
+var available_pieces = ['K', 'P', 'R', 'B', 'B', 'N', 'N', 'B', 'B', 'N', 'N', 'P', 'P']
+var difficulty = "medium"
 var board = []
 var row
 var col
@@ -42,7 +43,7 @@ func _ready():
 	if difficulty == "easy":
 		num_pieces = 11
 	elif difficulty == "medium":
-		num_pieces = 5
+		num_pieces = 8
 	elif difficulty == "hard":
 		num_pieces = 8
 
@@ -117,8 +118,9 @@ func is_valid_move(row, col, piece):
 				elif piece == 'N' and ((abs(row - i) == 2 and abs(col - j) == 1) or (abs(row - i) == 1 and abs(col - j) == 2)):
 					return true
 				elif piece == 'P' and ((row == i + 1 and abs(col - j) == 1) or (row == i - 1 and abs(col - j) == 1)):
-					return true
 
+				#elif piece == 'P' and ((row == i + 1 and abs(col - j) == 1)):
+					return true
 	return false
 
 # Function to place the remaining pieces on the board
@@ -160,6 +162,12 @@ func place_remaining_pieces(initial_piece):
 				# If the first piece is a Pawn (P), the second piece must be a King or Bishop
 				elif initial_piece == 'P':
 					var k_b_array = ['K', 'B']
+					piece = k_b_array[randi() % k_b_array.size()]
+					available_pieces.erase(piece)
+					available_pieces = available_pieces.filter(func(value): return value != null)
+					available_pieces.append('Z')
+				elif initial_piece == 'K':
+					var k_b_array = ['K', 'B', 'P', 'R']
 					piece = k_b_array[randi() % k_b_array.size()]
 					available_pieces.erase(piece)
 					available_pieces = available_pieces.filter(func(value): return value != null)
@@ -249,8 +257,9 @@ func can_capture(sp, dr, dc, sr, sc):
 	elif sp == 'N' and ((row_diff == 2 and col_diff == 1) or (row_diff == 1 and col_diff == 2)):
 		return true
 	elif sp == 'P' and ((dr == sr + 1 and col_diff == 1) or (dr == sr - 1 and col_diff == 1)):
-		return true
 
+	#elif sp == 'P' and ((dr == sr - 1 and col_diff == 1)):
+		return true
 	return false
 					
 var player_clicked = false

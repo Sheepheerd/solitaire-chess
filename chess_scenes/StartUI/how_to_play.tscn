@@ -1,0 +1,159 @@
+[gd_scene load_steps=16 format=3 uid="uid://bkdov0warycqr"]
+
+[ext_resource type="Texture2D" uid="uid://dvtphd2u648d3" path="res://art/chess/backdrop.svg" id="1_hhtsx"]
+[ext_resource type="Texture2D" uid="uid://pjbwuwl10gpp" path="res://art/chess/chessboard.svg" id="3_tcssw"]
+[ext_resource type="FontFile" uid="uid://bgsdhl20p74rw" path="res://fonts/Chivo/static/Chivo-Thin.ttf" id="4_7ab7m"]
+[ext_resource type="Script" path="res://chess_scenes/StartUI/start_second_pulse.gd" id="4_kj256"]
+[ext_resource type="Texture2D" uid="uid://5pj1poov1vos" path="res://art/chess/square.svg" id="6_2h4ch"]
+[ext_resource type="Script" path="res://chess_scenes/StartUI/pieces_pulse.gd" id="6_vojoq"]
+[ext_resource type="Script" path="res://chess_scenes/StartUI/play_to_game.gd" id="6_wb2hy"]
+[ext_resource type="Texture2D" uid="uid://ld6jrkmccj6x" path="res://art/chess/new_art/Tabler-icons_chess.png" id="7_2yysq"]
+[ext_resource type="Texture2D" uid="uid://cfxtdaygxegx4" path="res://art/chess/new_art/Tabler-icons_chess-bishop.png" id="8_spv24"]
+[ext_resource type="Texture2D" uid="uid://c74hnksdcq0pn" path="res://art/chess/new_art/Tabler-icons_chess-knight.svg.png" id="9_6hybp"]
+[ext_resource type="Texture2D" uid="uid://dtoj6neuwcxat" path="res://art/chess/new_art/Tabler-icons_chess-rook.png" id="10_ngbbg"]
+[ext_resource type="Texture2D" uid="uid://cb12oyrdxdi4k" path="res://art/chess/new_art/Tabler-icons_chess-king.png" id="11_3w4yy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_unl8m"]
+font = ExtResource("4_7ab7m")
+font_size = 121
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jq8q"]
+size = Vector2(257.215, 125.575)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vg6jm"]
+font = ExtResource("4_7ab7m")
+font_size = 80
+
+[node name="How_to_play" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+position = Vector2(540, 1200)
+texture = ExtResource("1_hhtsx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Chessboard" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(540, 1200)
+texture = ExtResource("3_tcssw")
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 1792.0
+offset_right = 1080.0
+offset_bottom = 1995.0
+text = "Next"
+label_settings = SubResource("LabelSettings_unl8m")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_kj256")
+
+[node name="Timer" type="Timer" parent="Control/Label"]
+one_shot = true
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 304.0
+offset_right = 1080.0
+offset_bottom = 452.0
+grow_horizontal = 2
+text = "Solitaire Chess"
+label_settings = SubResource("LabelSettings_unl8m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(539, 1904)
+shape = SubResource("RectangleShape2D_6jq8q")
+script = ExtResource("6_wb2hy")
+
+[node name="Pieces" type="Control" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_vojoq")
+
+[node name="directions" type="Label" parent="Control/Pieces"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 790.0
+offset_right = 1080.0
+offset_bottom = 1681.0
+text = "       - Omi-Diagonal
+
+       - Full Diagonal
+
+       - L Attack
+
+       - Up Down Left Right
+
+       - Omi-Directional"
+label_settings = SubResource("LabelSettings_vg6jm")
+vertical_alignment = 1
+
+[node name="Square" type="Sprite2D" parent="Control/Pieces"]
+position = Vector2(175, 844)
+texture = ExtResource("6_2h4ch")
+
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Square"]
+position = Vector2(1.99998, 0.999939)
+scale = Vector2(0.533, 0.533)
+texture = ExtResource("7_2yysq")
+
+[node name="Bishop" type="Sprite2D" parent="Control/Pieces"]
+position = Vector2(175, 1043)
+texture = ExtResource("6_2h4ch")
+
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Bishop"]
+z_index = 1
+position = Vector2(1.99998, 0.999939)
+scale = Vector2(0.533, 0.533)
+texture = ExtResource("8_spv24")
+
+[node name="Knight" type="Sprite2D" parent="Control/Pieces"]
+position = Vector2(175, 1240)
+texture = ExtResource("6_2h4ch")
+
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Knight"]
+position = Vector2(1.99998, 0.999939)
+scale = Vector2(0.533, 0.533)
+texture = ExtResource("9_6hybp")
+
+[node name="Rook" type="Sprite2D" parent="Control/Pieces"]
+position = Vector2(175, 1439)
+texture = ExtResource("6_2h4ch")
+
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Rook"]
+position = Vector2(1.99998, 0.999939)
+scale = Vector2(0.533, 0.533)
+texture = ExtResource("10_ngbbg")
+
+[node name="King" type="Sprite2D" parent="Control/Pieces"]
+position = Vector2(175, 1637)
+texture = ExtResource("6_2h4ch")
+
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/King"]
+position = Vector2(1.99998, 0.999939)
+scale = Vector2(0.533, 0.533)
+texture = ExtResource("11_3w4yy")
+
+[node name="Timer" type="Timer" parent="Control/Pieces"]
+one_shot = true
+
+[connection signal="timeout" from="Control/Label/Timer" to="Control/Label" method="change"]
+[connection signal="pressed" from="Control/TouchScreenButton" to="Control/TouchScreenButton" method="_on_pressed"]
+[connection signal="timeout" from="Control/Pieces/Timer" to="Control/Label" method="change"]
