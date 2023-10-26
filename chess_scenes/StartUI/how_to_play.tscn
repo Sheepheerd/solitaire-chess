@@ -74,6 +74,7 @@ shape = SubResource("RectangleShape2D_6jq8q")
 script = ExtResource("6_wb2hy")
 
 [node name="Pieces" type="Control" parent="Control"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
