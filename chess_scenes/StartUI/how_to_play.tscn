@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkdov0warycqr"]
+[gd_scene load_steps=15 format=3 uid="uid://bkdov0warycqr"]
 
 [ext_resource type="Texture2D" uid="uid://dvtphd2u648d3" path="res://art/chess/backdrop.svg" id="1_hhtsx"]
-[ext_resource type="Texture2D" uid="uid://pjbwuwl10gpp" path="res://art/chess/chessboard.svg" id="3_tcssw"]
 [ext_resource type="FontFile" uid="uid://bgsdhl20p74rw" path="res://fonts/Chivo/static/Chivo-Thin.ttf" id="4_7ab7m"]
 [ext_resource type="Script" path="res://chess_scenes/StartUI/start_second_pulse.gd" id="4_kj256"]
 [ext_resource type="Texture2D" uid="uid://5pj1poov1vos" path="res://art/chess/square.svg" id="6_2h4ch"]
@@ -42,11 +41,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Chessboard" type="Sprite2D" parent="Control"]
-visible = false
-position = Vector2(540, 1200)
-texture = ExtResource("3_tcssw")
-
 [node name="Label" type="Label" parent="Control"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -80,8 +74,6 @@ shape = SubResource("RectangleShape2D_6jq8q")
 script = ExtResource("6_wb2hy")
 
 [node name="Pieces" type="Control" parent="Control"]
-modulate = Color(1, 1, 1, 0)
-z_index = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -89,70 +81,76 @@ script = ExtResource("6_vojoq")
 
 [node name="directions" type="Label" parent="Control/Pieces"]
 layout_mode = 0
-offset_left = 113.0
+offset_left = 101.0
 offset_top = 790.0
-offset_right = 1080.0
+offset_right = 1020.0
 offset_bottom = 1681.0
-text = "       - Omi-Diagonal
+text = "        - All Corners
 
-       - Full Diagonal
+        - Diagonal
 
-       - L Attack
+        - L Shaped
 
-       - Up Down Left Right
+        - Orthogonal
 
-       - Omi-Directional"
+        - Cardinal"
 label_settings = SubResource("LabelSettings_vg6jm")
 vertical_alignment = 1
 
-[node name="Square" type="Sprite2D" parent="Control/Pieces"]
+[node name="Timer" type="Timer" parent="Control/Pieces"]
+one_shot = true
+
+[node name="Control" type="Control" parent="Control/Pieces"]
+anchors_preset = 0
+offset_left = -10.0
+offset_right = 30.0
+offset_bottom = 40.0
+
+[node name="Square" type="Sprite2D" parent="Control/Pieces/Control"]
 position = Vector2(175, 844)
 texture = ExtResource("6_2h4ch")
 
-[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Square"]
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Control/Square"]
 position = Vector2(1.99998, 0.999939)
 scale = Vector2(0.533, 0.533)
 texture = ExtResource("7_2yysq")
 
-[node name="Bishop" type="Sprite2D" parent="Control/Pieces"]
+[node name="Bishop" type="Sprite2D" parent="Control/Pieces/Control"]
 position = Vector2(175, 1043)
 texture = ExtResource("6_2h4ch")
 
-[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Bishop"]
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Control/Bishop"]
 z_index = 1
 position = Vector2(1.99998, 0.999939)
 scale = Vector2(0.533, 0.533)
 texture = ExtResource("8_spv24")
 
-[node name="Knight" type="Sprite2D" parent="Control/Pieces"]
+[node name="Knight" type="Sprite2D" parent="Control/Pieces/Control"]
 position = Vector2(175, 1240)
 texture = ExtResource("6_2h4ch")
 
-[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Knight"]
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Control/Knight"]
 position = Vector2(1.99998, 0.999939)
 scale = Vector2(0.533, 0.533)
 texture = ExtResource("9_6hybp")
 
-[node name="Rook" type="Sprite2D" parent="Control/Pieces"]
+[node name="Rook" type="Sprite2D" parent="Control/Pieces/Control"]
 position = Vector2(175, 1439)
 texture = ExtResource("6_2h4ch")
 
-[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Rook"]
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Control/Rook"]
 position = Vector2(1.99998, 0.999939)
 scale = Vector2(0.533, 0.533)
 texture = ExtResource("10_ngbbg")
 
-[node name="King" type="Sprite2D" parent="Control/Pieces"]
+[node name="King" type="Sprite2D" parent="Control/Pieces/Control"]
 position = Vector2(175, 1637)
 texture = ExtResource("6_2h4ch")
 
-[node name="Pawn" type="Sprite2D" parent="Control/Pieces/King"]
+[node name="Pawn" type="Sprite2D" parent="Control/Pieces/Control/King"]
 position = Vector2(1.99998, 0.999939)
 scale = Vector2(0.533, 0.533)
 texture = ExtResource("11_3w4yy")
-
-[node name="Timer" type="Timer" parent="Control/Pieces"]
-one_shot = true
 
 [connection signal="timeout" from="Control/Label/Timer" to="Control/Label" method="change"]
 [connection signal="pressed" from="Control/TouchScreenButton" to="Control/TouchScreenButton" method="_on_pressed"]

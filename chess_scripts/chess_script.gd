@@ -19,8 +19,8 @@ var array_size = 7
 
 # Define the available chess pieces
 #var available_pieces = ['K', 'P', 'R', 'B', 'B', 'N', 'N', 'P', 'P', 'P', 'B', 'B', 'N', 'N', 'P', 'P']
-var available_pieces = ['K', 'P', 'R', 'B', 'B', 'N', 'N', 'B', 'B', 'N', 'N', 'P', 'P']
-var difficulty = "medium"
+var available_pieces = ['K', 'P', 'R', 'B', 'B', 'N', 'N', 'B', 'P', 'N', 'N', 'P', 'P']
+var difficulty = "easy"
 var board = []
 var row
 var col
@@ -161,7 +161,7 @@ func place_remaining_pieces(initial_piece):
 					available_pieces.append('Z')
 				# If the first piece is a Pawn (P), the second piece must be a King or Bishop
 				elif initial_piece == 'P':
-					var k_b_array = ['K', 'B']
+					var k_b_array = ['K', 'B', 'P']
 					piece = k_b_array[randi() % k_b_array.size()]
 					available_pieces.erase(piece)
 					available_pieces = available_pieces.filter(func(value): return value != null)
@@ -241,6 +241,15 @@ func can_capture(sp, dr, dc, sr, sc):
 	elif sp == 'Q' and (sr == dr or sc == dc or row_diff == col_diff):
 		return true
 	elif sp == 'R' and (sr == dr or sc == dc) && !(sr == dr and sc == dc):
+		var row_step = 1 if dr > sr else -1 if dr < sr else 0
+		var col_step = 1 if dc > sc else -1 if dc < sc else 0
+		var row = sr + row_step
+		var col = sc + col_step
+		while row != dr or col != dc:
+			if board[row][col] != 'E':
+				return false
+			row += row_step
+			col += col_step
 		return true
 	elif sp == 'B' and row_diff == col_diff && !(sr == dr and sc == dc):
 		# Check if there are pieces in the way
